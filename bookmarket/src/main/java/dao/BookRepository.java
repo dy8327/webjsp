@@ -5,7 +5,13 @@ import java.util.ArrayList;
 import dto.Book;
 
 public class BookRepository {
+
     private ArrayList<Book> listOfBooks=new ArrayList<Book>();
+    private static BookRepository instance = new BookRepository(); //도서 추가
+
+    public static BookRepository getInstance(){
+        return instance;
+    }
 
     public BookRepository(){
         Book book1 = new Book("ISBN1234","C# 프로그래밍", 27000);
@@ -42,5 +48,21 @@ public class BookRepository {
         return listOfBooks;
     }
 
+    public Book getBookById(String bookId){
+        Book bookById=null;
+        for(int i=0; i<listOfBooks.size(); i++){
+            Book book=listOfBooks.get(i);
+             //유효성 평가
+            if(book!=null && book.getBookId()!=null && book.getBookId().equals(bookId)){
+                bookById=book;
+                break;
+            }
+        }
+        return bookById;
+    }
+    //도서 추가
+    public void addBook(Book book){
+        listOfBooks.add(book);
+    }
 
 }
