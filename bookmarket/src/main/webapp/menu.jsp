@@ -1,4 +1,5 @@
 <%@ page contentType = "text/html; charset = utf-8" pageEncoding="UTF-8" %>
 <html>
-<h3>메뉴</h3>
+<img src="bookmarket\src\main\img\store.png">
+<h3>Home</h3>
 </html>
