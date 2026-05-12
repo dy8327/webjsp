@@ -1,6 +1,7 @@
 <%@ page contentType = "text/html; charset = utf-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Book" %>
+<%@ page import="dao.BookRepository" %>
 <jsp:useBean id="bookDAO" class="dao.BookRepository" scope="session" />
 <html>
 <head>
@@ -18,7 +19,8 @@
     </div>
 </div>
 <%
-    ArrayList<Book> listOfBooks=bookDAO.getAllBooks();
+    BookRepository dao=BookRepository.getInstance();
+    ArrayList<Book> listOfBooks=dao.getAllBooks();
 %>
 
 <div class="row align-items-md-stretch text-center">
@@ -39,6 +41,8 @@
                
             <p><%=shortDesc %>...
             <p><%=book.getUnitPrice() %>원
+            <p><a href="./book.jsp?id=<%=book.getBookId() %>"
+            class="btn btn-secondary" role="button"> 상세 정보 &raquo;></a>
         </div>
     </div>
     <%
