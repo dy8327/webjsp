@@ -8,7 +8,7 @@
     String bookId=request.getParameter("bookId");
     String name=request.getParameter("name");
     String unitPrice=request.getParameter("unitPrice");
-    String author=request.getParameter("aothor");
+    String author=request.getParameter("author");
     String publisher=request.getParameter("publisher");
     String releaseDate=request.getParameter("releaseDate");
     String description=request.getParameter("description");
