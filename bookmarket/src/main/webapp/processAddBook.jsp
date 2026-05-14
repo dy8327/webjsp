@@ -1,10 +1,19 @@
 <%@ page contentType = "text/html; charset = utf-8" pageEncoding="UTF-8" %>
 <%@ page import="dto.Book" %>
 <%@ page import="dao.BookRepository" %>
+<%@ page import="java.io.*" %>
+<%@ page import="jakarta.servlet.http" %>
+<%@ page import="java.util.*" %>
 
 <%
     request.setCharacterEncoding("UTF-8");
 
+    String realFolder = request.getServletContext().getRealPath("/resources/images");
+
+    File dir = new File(realFolder);
+    if(!dir.exists()){
+        dir.mkdirs();
+    }
     String bookId=request.getParameter("bookId");
     String name=request.getParameter("name");
     String unitPrice=request.getParameter("unitPrice");
@@ -28,6 +37,14 @@
     else
         stock=Long.valueOf(unitsInStock);
 
+    //파일 업로드 처리
+    string fileName="";
+    Part filePart=request.getPart("bookImage");
+    if (filePart != null && filePart.getSubmittedFileName() != null && !filePart.getSubmittedFileName().isEmpty()) {
+        fileName = Paths.getSubmitFilename();
+        part.write(realFolder + File.separator + fileName);
+    }
+
     BookRepository dao=BookRepository.getInstance();
 
     Book newBook = new Book();
@@ -41,6 +58,7 @@
     newBook.setUnitsInStock(stock);
     newBook.setReleaseDate(releaseDate);
     newBook.setCondition(condition);
+    newBook.setFileName(fileName);
 
     dao.addBook(newBook);
 
