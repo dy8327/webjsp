@@ -1,0 +1,13 @@
+# VS Code personal settings
+.vscode/
+
+# temporary backup
+backup/
+
+# Java / Maven build output
+target/
+*.class
+
+# OS files
+Thumbs.db
+.DS_Store
