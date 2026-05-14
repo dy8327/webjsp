@@ -21,7 +21,7 @@
     </div>
     <%
         String id=request.getParameter("id");
-        BookRepository dao=BookRepository.getInstance()
+        BookRepository dao=BookRepository.getInstance();
         Book book=dao.getBookById(id);
     %>
     <div class="row align-items-md-stretch">
