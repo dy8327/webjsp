@@ -38,11 +38,11 @@
         stock=Long.valueOf(unitsInStock);
 
     //파일 업로드 처리
-    String fileName="";
+    String filename="";
     Part part=request.getPart("bookImage");
     if (part != null && part.getSubmittedFileName() != null && !part.getSubmittedFileName().isEmpty()) {
-        fileName = part.getSubmittedFileName();
-        part.write(realFolder + File.separator + fileName);
+        filename = part.getSubmittedFileName();
+        part.write(realFolder + File.separator + filename);
     }
 
     BookRepository dao=BookRepository.getInstance();
@@ -58,7 +58,7 @@
     newBook.setUnitsInStock(stock);
     newBook.setReleaseDate(releaseDate);
     newBook.setCondition(condition);
-    newBook.setFileName(fileName);
+    newBook.setFilename(filename);
 
     dao.addBook(newBook);
 
