@@ -38,9 +38,9 @@
         stock=Long.valueOf(unitsInStock);
 
     //파일 업로드 처리
-    string fileName="";
-    Part filePart=request.getPart("bookImage");
-    if (filePart != null && filePart.getSubmittedFileName() != null && !filePart.getSubmittedFileName().isEmpty()) {
+    String fileName="";
+    Part Part=request.getPart("bookImage");
+    if (Part != null && Part.getSubmittedFileName() != null && !Part.getSubmittedFileName().isEmpty()) {
         fileName = Paths.getSubmitFilename();
         part.write(realFolder + File.separator + fileName);
     }
