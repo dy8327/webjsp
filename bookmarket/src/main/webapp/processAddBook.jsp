@@ -2,7 +2,7 @@
 <%@ page import="dto.Book" %>
 <%@ page import="dao.BookRepository" %>
 <%@ page import="java.io.*" %>
-<%@ page import="jakarta.servlet.http" %>
+<%@ page import="jakarta.servlet.http.*" %>
 <%@ page import="java.util.*" %>
 
 <%
