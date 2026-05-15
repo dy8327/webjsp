@@ -39,9 +39,9 @@
 
     //파일 업로드 처리
     String fileName="";
-    Part Part=request.getPart("bookImage");
-    if (Part != null && Part.getSubmittedFileName() != null && !Part.getSubmittedFileName().isEmpty()) {
-        fileName = Paths.getSubmitFilename();
+    Part part=request.getPart("bookImage");
+    if (part != null && part.getSubmittedFileName() != null && !part.getSubmittedFileName().isEmpty()) {
+        fileName = part.getSubmittedFileName();
         part.write(realFolder + File.separator + fileName);
     }
 
